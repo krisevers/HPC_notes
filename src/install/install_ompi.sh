@@ -30,4 +30,3 @@ sudo apt-get install openmpi-bin libopenmpi-dev
 cd ..
 rm -rf openmpi-${MAJOR}.${MINOR}
 rm openmpi-${MAJOR}.${MINOR}.tar.gz
-

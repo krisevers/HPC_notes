@@ -12,4 +12,7 @@ All implemented in [`install_singularity.sh`](./src/install/install_singularity.
 2. install `slurm` for job scheduling ([`install_slurm.sh`](.src/install/install_slurm.sh)).
 
 ## OpenMPI
-1. install OpenMPI (`ompi`) for parallel compute ([`install_ompi`](./src/install/install_ompi.sh)).
+1. install OpenMPI (`ompi`) for parallel compute ([`install_ompi.sh`](./src/install/install_ompi.sh)).
+
+## HDF5
+1. install `hdf5` library for handling large datasets ([`install_hdf5.sh`](.src/install/install_hdf5.sh))
