@@ -1,4 +1,4 @@
-# Installating HPC Tools
+# Installation HPC Tools
 
 ## Singularity
 1. install system dependencies.
@@ -9,4 +9,7 @@ All implemented in [`install_singularity.sh`](./src/install/install_singularity.
 
 ## Slurm
 1. install `munge` for authentication ([`install_munge.sh`](./src/install/install_munge.sh)).
-2. install `slurm` for job scheduling ([`install_slurm.sh](.src/install/install_slurm.sh)).
+2. install `slurm` for job scheduling ([`install_slurm.sh`](.src/install/install_slurm.sh)).
+
+## OpenMPI
+1. install OpenMPI (`ompi`) for parallel compute ([`install_ompi`](./src/install/install_ompi.sh)).
