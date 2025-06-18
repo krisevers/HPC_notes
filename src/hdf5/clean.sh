@@ -1,0 +1,1 @@
+rm executables/* data/*.h5
