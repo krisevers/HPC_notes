@@ -29,3 +29,6 @@ else
 fi
 cmake --build .
 sudo make install
+
+cd ..
+rm hdf5
