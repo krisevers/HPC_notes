@@ -1,0 +1,3 @@
+gdb /ent
+run
+# bt

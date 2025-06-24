@@ -2,7 +2,7 @@
 
 #include <balloc.h>
 
-int main(int* argc, char** argv) {
+int main(int argc, char** argv) {
 
     balloc::instanceInfo info;
     balloc::instance instance(info);
