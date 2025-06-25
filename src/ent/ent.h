@@ -1,6 +1,10 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdint.h>
+#include <stdarg.h>
+#include <math.h>
+
+#include "utils.h"
 
 typedef enum {
     RESULT_SUCCESS,
@@ -23,17 +27,11 @@ struct ComponentInfo {
     MTYPE mtype;
 };
 
-typedef struct {
-    uint16_t begin;
-    uint16_t end;
-} View;
-
 typedef struct
 {
     uint16_t size;
     uint16_t capacity;
-    uint16_t *copies;
-    View **views;
+    uint16_t** relations;
 } Model;
 
 static size_t ID(void) {
@@ -41,20 +39,16 @@ static size_t ID(void) {
     return counter++;
 }
 
-Model init(size_t capacity) {
-    Model model;
-    model.size = 0;
-    model.capacity = capacity;
-    model.copies = (uint16_t*)malloc(capacity * sizeof(uint16_t));
-    model.views = (View **)malloc(capacity * sizeof(View *));
-    for (size_t i = 0; i < capacity; ++i) { 
-        model.views[i] = (View *)malloc(capacity * sizeof(View));
-        for (size_t j = 0; j < capacity; ++j) {
-            model.views[i][j].begin = 0;
-            model.views[i][j].end = 0;
-        }
-    }
-    return model;
+RESULT init(Model* model, size_t capacity) {
+    model->size = 0;
+    model->capacity = capacity;
+    model->relations = MatrixInt16(model->capacity, model->capacity);
+    return RESULT_SUCCESS;
+}
+
+RESULT Model_free(Model* model) {
+    MatrixInt16_free(model->relations, model->capacity);
+    return RESULT_SUCCESS;
 }
 
 size_t create(Model* model) {
@@ -64,25 +58,36 @@ size_t create(Model* model) {
 
 
 void give(Model* model, size_t parent, size_t child, uint16_t copies ) {
-    uint16_t current = model->copies[child];
-    
-    View temp = {
-        .begin = current,
-        .end   = current+copies 
-    };
+    model->relations[parent][child] = copies;
+}
 
-    model->copies[child] += copies;
-    model->views[parent][child] = temp;
+size_t assemble(Model* model, size_t num_args, ...) {
+    va_list args;
+    va_start(args, num_args);
+
+    size_t new_id = ID();
+
+    for (size_t i = 0; i < num_args; ++i) {
+        size_t arg = va_arg(args, size_t);
+        printf("\n\n%zu\n\n", arg);
+        model->relations[new_id][arg] = 1;
+    }
+
+    va_end(args);
+    return new_id;
 }
 
 
-size_t assemble() {
-
-    return ID();
+void print(Model* model) {
+    printf("parent -> child : copies:\n");
+    for (uint16_t i = 0; i < model->capacity; ++i) {
+        for (uint16_t j = 0; j < model->capacity; ++j) {
+            if (model->relations[i][j] != 0) {
+                printf("%u -> %u : %u\n", i, j, model->relations[i][j]);
+            }
+        }
+    }
 }
-
-
-
 
 
 

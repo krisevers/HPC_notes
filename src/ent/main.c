@@ -3,7 +3,11 @@
 
 int main(int argc, char** argv) {
     
-    Model m = init(100);
+    Model m;
+    if (init(&m, 100) != RESULT_SUCCESS) {
+        fprintf(stderr, "Failed to initialize model\n");
+        return 1;
+    }
 
     size_t x = create(&m);
     size_t y = create(&m);
@@ -12,7 +16,7 @@ int main(int argc, char** argv) {
     size_t p1 = create(&m);
     size_t p2 = create(&m);
     
-    printf("==== components ====");
+    printf("==== components ====\n");
     printf("x = %zu\n", x);
     printf("y = %zu\n", y);
     printf("z = %zu\n", z);
@@ -21,13 +25,15 @@ int main(int argc, char** argv) {
 
     give(&m, p1, x, 10);
     give(&m, p2, x, 100);
+    give(&m, p2, z, 100);
 
-    printf("p1:\n");
-    printf("%hu\n", m.views[p1][x].begin);
-    printf("%hu\n", m.views[p1][x].end);
-    printf("p2:\n");
-    printf("%hu\n", m.views[p2][x].begin);
-    printf("%hu\n", m.views[p2][x].end);
+    size_t cloud = assemble(&m, p1, p2);
+
+    printf("==== relations ====\n");
+    print(&m);
+
+
+    printf("cloud = %zu\n", cloud);
 
     // create methods to assemble model
     // assemble method

@@ -1,1 +1,1 @@
-clang --std=c99 main.c -o ent -Wall -Werror
+clang --std=c23 main.c -o ent -lm -Wall -Werror
