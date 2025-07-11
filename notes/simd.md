@@ -26,10 +26,6 @@ Single Instruction Multiple Data (SIMD) is a technique where a single instructio
 
 ## Tools & Libraries
 
-- **Zig:** Create a SIMD vector using the `@Vector()` function.
-    - no native async available
-    - `MultiArrayList` is a native Struct-of-Arrays container.
-    - native C integration.
 - **SYCL:** Heterogeneous programming, supports explicit SIMD types (CPU/GPU).
     - compiler: https://github.com/AdaptiveCpp/AdaptiveCpp
 - **CUDA:** GPU programming, supports vectorized operations and warp-level parallelism.
@@ -37,6 +33,12 @@ Single Instruction Multiple Data (SIMD) is a technique where a single instructio
 - **HIP:** C++ Runtime API and Kernel Language that allows developers to create portable applications for AMD and NVIDIA GPUs from single source code.
 - **OpenMP:** SIMD directives for C/C++/Fortran.
 - **Intel Intrinsics:** Fine-grained SIMD control in C/C++.
+- **Zig:** Data-oriented language.
+    - native SIMD with `@Vector()` function.
+    - no native async available
+    - `MultiArrayList` is a native Struct-of-Arrays container.
+    - native C integration.
+    - developers do not focus on HPC at the moment.
 - **Eigen:** C++ linear algebra, auto-vectorizes many operations.
     - not transparent.
     - auto-vectorization not perfect.
