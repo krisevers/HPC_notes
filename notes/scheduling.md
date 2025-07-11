@@ -15,6 +15,9 @@ Scheduling in HPC determines how computational tasks are assigned to resources (
 - **Node sharing/exclusivity:** Multiple jobs per node vs. exclusive access.
 - **Dependencies:** Jobs may depend on the completion of others.
 
+## References
+- [*Repo*: Exo Language](https://arxiv.org/pdf/2411.07211)
+
 ## Tools & Libraries
 
 - **Slurm:** Widely used open-source workload manager.

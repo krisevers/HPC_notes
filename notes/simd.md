@@ -13,6 +13,17 @@ Single Instruction Multiple Data (SIMD) is a technique where a single instructio
 - **Masking:** Selectively enable/disable operations on elements in a vector.
 - **Gather/scatter:** Load/store non-contiguous data efficiently.
 
+## References
+- [*Talk*: Golden Age for Computer Architecture](https://cacm.acm.org/research/a-new-golden-age-for-computer-architecture/)
+- [*Article*: Designing a SIMD algorithm from Scratch](https://mcyoung.xyz/2023/11/27/simd-base64/)
+- [*Article*: The messy reality of SIMD (vector) functions](https://johnnysswlab.com/the-messy-reality-of-simd-vector-functions/)
+- [*Article*: Running Markov Chain Monte Carlo on Modern Hardware and Software](https://arxiv.org/html/2411.04260v1)
+- [*Article*: Untangling Lifetimes: The Arena Allocator](https://www.rfleury.com/p/untangling-lifetimes-the-arena-allocator)
+- [*Article*: Calling CUDA in 3000 Words](https://ashvardanian.com/posts/less-wrong-cuda-hello-world/)
+- [*Repo*: Exo Language](https://github.com/exo-lang/exo/tree/main)
+- [*Repo*: Parallel C++](https://github.com/CoffeeBeforeArch/parallel_cpp/tree/main)
+
+
 ## Tools & Libraries
 
 - **Zig:** Create a SIMD vector using the `@Vector()` function.
@@ -58,4 +69,3 @@ Single Instruction Multiple Data (SIMD) is a technique where a single instructio
 - Profile and tune iteratively.
 - Watch for memory bottlenecks and alignment issues.
 - Prefer SoA (Structure of Arrays) over AoS (Array of Structures) for better vectorization.
-
