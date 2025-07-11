@@ -1,0 +1,1 @@
+clang --std=c23 main.c -o ecs -lm -Wall -Werror

@@ -1,0 +1,3 @@
+gdb ./ecs
+run
+# bt

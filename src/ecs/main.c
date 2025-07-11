@@ -1,4 +1,4 @@
-#include "ent.h"
+#include "ecs.h"
 
 
 int main(int argc, char** argv) {
@@ -24,10 +24,10 @@ int main(int argc, char** argv) {
     printf("p2 = %zu\n", p2);
 
     give(&m, p1, x, 10);
-    give(&m, p2, x, 100);
+    give(&m, p2, x, 100); 
     give(&m, p2, z, 100);
 
-    size_t cloud = assemble(&m, p1, p2);
+    size_t cloud = assemble(&m, 2, p1, p2);
 
     printf("==== relations ====\n");
     print(&m);

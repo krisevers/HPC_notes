@@ -1,16 +1,36 @@
 #include <stdlib.h>
 #include <stdint.h>
 
-// static uint16_t* VectorInt16(size_t n) {
-//     return (uint16_t*)malloc(n * sizeof(uint16_t *));
-// }
+typedef struct {
+    uint16_t*   data;
+    size_t      size;
+    size_t      capacity;
+} vec_i16;
 
-// static void VectorInt16_free(uint16_t* array) {
-//     if (!array) return;
-//     free(array);
-// }
+typedef struct {
+    vec_i16*  data;
+    size_t    size;
+    size_t    capacity;      
+} mat_i16;
 
-static uint16_t** MatrixInt16(size_t n, size_t m) {
+static vec_i16 vec_i16_malloc(size_t n) {
+    vec_i16 vec;
+    vec.data = (uint16_t*)malloc(n * sizeof(uint16_t *));
+    vec.size = n;
+    vec.capacity = n;
+    return vec;
+}
+
+static void vec_i16_free(vec_i16 vec) {
+    if (!vec.data) return;
+    free(vec.data);
+}
+
+static mat_i16 mat_i16_malloc(size_t n, size_t m) {
+    
+}
+
+static mat_i16 MatrixInt16(size_t n, size_t m) {
     uint16_t **array = (uint16_t **)malloc(n * sizeof(uint16_t *));
     if (!array) return NULL;
     for (size_t i = 0; i < n; ++i) {
