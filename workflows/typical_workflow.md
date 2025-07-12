@@ -55,8 +55,30 @@ module load singularity
 srun -C mc --account=<acountname> singularity pull docker://<username>/<project>:<tag>
 ```
 
+`slurm` takes a list of arguments which one can define in a `run.sh` file:
+
+```bash
+#!/bin/bash
+# --- run.sh ---
+
+#SBATCH --job-name                  # specify job name
+#SBATCH --time=01:00:00             # specify runtime request
+#SBATCH --mem=1G                    # specify memory request
+#SBATCH --array=1-100               # spacify task parameter range for the job
+
+# load required modules
+module load <requirement>
+
+# run executable or script of interest with optional task specific parameter
+./<executable/script> $SLURM_ARRAY_TASK_ID
+```
+
+Then use `sbatch` to run a batch job.
 ```batch
-sbatch run.sh               # execute with the procedure defined in the 
+sbatch run.sh               # execute with the procedure defined in run.sh
 squeue -u ${USER}           # check status
+sacct -j <job_id>_<task_id> # job and task information
+scancel <job_id>            # cancel job
 tail -n 100 slurmlogfile    # check log file
 ```
+For more information on `slurm` commands and job scheduling go to the extended documentation: [https://slurm.schedmd.com/documentation.html](https://slurm.schedmd.com/documentation.html)
