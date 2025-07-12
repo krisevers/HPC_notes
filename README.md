@@ -5,7 +5,7 @@ This repository provides a set of blueprints, notes, and code snippets for high-
 This place is not fixed, and will change & grow depending on my latest area of focus.
 
 ## Written Notes
-I've organized my written notes on concepts & tools into overarching topics.
+Collection of written notes. I've organized my notes on concepts & tools into overarching topics.
 - [Scheduling](notes/scheduling.md)
 - [Data Management](notes/data.md)
 - [Containerization](notes/containerization.md)
@@ -13,6 +13,7 @@ I've organized my written notes on concepts & tools into overarching topics.
 
 ## Workflows
 Collection of workflows.
+- [A Typical HPC Workflow](workflows/typical_workflow.md)
 
 ## Benchmarks
 Collection of benchmarks of different tools I've performed to analyze performance.

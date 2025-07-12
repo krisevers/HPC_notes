@@ -31,6 +31,8 @@ Single Instruction Multiple Data (SIMD) is a technique where a single instructio
 - **CUDA:** GPU programming, supports vectorized operations and warp-level parallelism.
     - NVIDIA exclusive
 - **HIP:** C++ Runtime API and Kernel Language that allows developers to create portable applications for AMD and NVIDIA GPUs from single source code.
+- **Google Highway:** efficient and performance-portable vector software.
+    - written in C++.
 - **OpenMP:** SIMD directives for C/C++/Fortran.
 - **Intel Intrinsics:** Fine-grained SIMD control in C/C++.
 - **Zig:** Data-oriented language.
